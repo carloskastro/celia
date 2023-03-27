@@ -5,6 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Mi Proyecto</title>
 	<meta name="theme-color" content="#ff2e01">
+	<meta name="MobileOptimized" content="width">
+	<meta name="HandhledFriendly" content="true">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar" content="black-traslucent"> 
+	
 	<!--Tags SEO-->
 	<meta name="author" content="Miproyecto">
 	<meta name="description" content="Aplicativo para enseñanza de Bootstrap">
@@ -12,6 +17,8 @@
 
 	<!--Favicon-->
 	<link rel="icon" type="image/x-icon" href="media/logo.png">
+	<link rel="apple-touch-icon" type="image/png" href="media/logo.png">
+	<link rel="apple-touch-startup-image" type="image/png" href="media/logo.png">
 
 	<!--Styles Bootstrap 5.3.1 Alpha-->
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
@@ -20,96 +27,135 @@
 
 </head>
 <body class="h-100"><!--class="h-100"-->
-<div class="d-flex w-100 h-100 flex-column"><!--class="d-flex w-100 h-100 flex-column"-->
-	<header class="mb-auto"><!--class="mb-auto"-->
-		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Logo</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="collapsibleNavbar">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link" href="#">Link</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Link</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Link</a>
-						</li>
-					</ul>
+	<div class="d-flex w-100 h-100 flex-column">
+		<header class="mb-auto fixed-top"><!--class="mb-auto"-->
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">
+						<img src="media/logo.png" alt="Logo WebApp" style="width:40px;" class="rounded-pill">
+					</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-label="button navbar">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="collapsibleNavbar">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link" href="#">Link</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Link</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Link</a>
+							</li>
+						</ul>
+					</div>
 				</div>
-			</div>
-		</nav>
-	</header>
-	<main>
-		Aqui v el contenido general
-	</main>
-	<footer class="bg-dark text-center text-white">
-		<!-- Grid container -->
-		<div class="container p-4 pb-0">
-			<!-- Section: Social media -->
-			<section class="mb-4">
-				<!-- Facebook -->
-				<a class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-
-				<!-- Twitter -->
-				<a
-				class="btn text-white btn-floating m-1"
-				style="background-color: #55acee;"
-				href="#!"
-				role="button"
-				><i class="fab fa-twitter"></i
-				></a>
-
-				<!-- Google -->
-				<a
-				class="btn text-white btn-floating m-1"
-				style="background-color: #dd4b39;"
-				href="#!"
-				role="button"
-				><i class="fab fa-google"></i
-				></a>
-
-				<!-- Instagram -->
-				<a
-				class="btn text-white btn-floating m-1"
-				style="background-color: #ac2bac;"
-				href="#!"
-				role="button"
-				><i class="fab fa-instagram"></i
-				></a>
-
-				<!-- Linkedin -->
-				<a
-				class="btn text-white btn-floating m-1"
-				style="background-color: #0082ca;"
-				href="#!"
-				role="button"
-				><i class="fab fa-linkedin-in"></i
-				></a>
-				<!-- Github -->
-				<a
-				class="btn text-white btn-floating m-1"
-				style="background-color: #333333;"
-				href="#!"
-				role="button"
-				><i class="fab fa-github"></i
-				></a>
+			</nav>
+		</header>
+		<main class="container pt-5">
+			<section class="pt-5 pb-5">	
+				<p class="pt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel nulla vitae nisl luctus iaculis sed vel ipsum. Etiam dictum odio ac fringilla blandit. Nullam congue enim leo, quis ullamcorper elit interdum pellentesque. Donec et fringilla risus. Vivamus at risus ullamcorper mauris condimentum blandit. Morbi a turpis venenatis, elementum purus quis, suscipit nisi. In vitae arcu at eros vulputate laoreet ut ac ex. Proin hendrerit viverra pharetra. In aliquam aliquam nisi finibus pulvinar. Phasellus odio dolor, dignissim sit amet viverra eu, dignissim a erat. Nulla sed sapien iaculis, sagittis ligula vitae, vulputate libero. Nunc a tempus enim, vitae bibendum urna. Cras ut dolor ac urna consequat maximus facilisis vel tellus. Quisque non blandit nulla.</p>
 			</section>
-			<!-- Section: Social media -->
-		</div>
-		<!-- Grid container -->
 
-		<!-- Copyright -->
-		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-			© 2020 Copyright:
-			<a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-		</div>
-		<!-- Copyright -->
-	</footer>
+			<section class="pt-5">
+				<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+  Open modal
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
 </div>
+				<div class="row pt-3">
+					<div class="col-4">
+						<div class="card" style="width:400px">
+							<img class="card-img-top" src="img_avatar1.png" alt="Card image">
+							<div class="card-body">
+								<h4 class="card-title">John Doe</h4>
+								<p class="card-text">Some example text.</p>
+								<a href="#" class="btn btn-primary">See Profile</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="card" style="width:400px">
+							<img class="card-img-top" src="img_avatar1.png" alt="Card image">
+							<div class="card-body">
+								<h4 class="card-title">John Doe</h4>
+								<p class="card-text">Some example text.</p>
+								<a href="#" class="btn btn-primary">See Profile</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="card" style="width:400px">
+							<img class="card-img-top" src="img_avatar1.png" alt="Card image">
+							<div class="card-body">
+								<h4 class="card-title">John Doe</h4>
+								<p class="card-text">Some example text.</p>
+								<a href="#" class="btn btn-primary">See Profile</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		<footer class="text-center text-white">
+			<!-- Grid container -->
+			<div class="container p-4 pb-0">
+				<!-- Section: Social media -->
+				<section class="mb-4">
+					<!-- Facebook -->
+					<a class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button" aria-label="facebook_url"><i class="fab fa-facebook-f"></i></a>
+
+					<!-- Twitter -->
+					<a class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!"	role="button" aria-label="twitter-url"><i class="fab fa-twitter"></i></a>
+
+					<!-- Google -->
+					<a class="btn text-white btn-floating m-1" style="background-color: #dd4b39;" href="#!"	role="button"  aria-label="google-url"><i class="fab fa-google"></i></a>
+
+					<!-- Instagram -->
+					<a	class="btn text-white btn-floating m-1"	style="background-color: #ac2bac;"	href="#!" role="button" aria-label="instagram-url"><i class="fab fa-instagram"></i></a>
+
+					<!-- Linkedin -->
+					<a class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button" aria-label="linkedin-url"><i class="fab fa-linkedin-in"></i></a>
+					<!-- Github -->
+					<a class="btn text-white btn-floating m-1"	style="background-color: #333333;" href="#!" role="button" aria-label="github-url"><i class="fab fa-github"></i></a>
+				</section>
+				<!-- Section: Social media -->
+			</div>
+			<!-- Grid container -->
+
+			<!-- Copyright -->
+			<div class="bg-dark text-center p-3">
+				© 2020 Copyright:
+				<a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+			</div>
+			<!-- Copyright -->
+		</footer>
+	</div>
 </body>
 </html>
