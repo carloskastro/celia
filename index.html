@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-CO" class="h-100"> <!--class="h-100"-->
+<html lang="es-CO" class="h-100">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,82 +16,94 @@
 	<meta name="keyworks" content="SENA, sena, Sena, Web App, web app, WEB APP">
 
 	<!--Favicon-->
-	<link rel="icon" type="image/x-icon" href="media/logo.png">
-	<link rel="apple-touch-icon" type="image/png" href="media/logo.png">
-	<link rel="apple-touch-startup-image" type="image/png" href="media/logo.png">
+	<link rel="icon" type="image/x-icon" href="media/img/logo.png">
+	<link rel="apple-touch-icon" type="image/png" href="media/img/logo.png">
+	<link rel="apple-touch-startup-image" type="image/png" href="media/img/logo.png">
 
 	<!--Styles Bootstrap 5.3.1 Alpha-->
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	<script type="text/javascript" src="assets/js/bootstrap.bundle.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
-
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
 </head>
-<body class="h-100"><!--class="h-100"-->
+<body class="h-100">
 	<div class="d-flex w-100 h-100 flex-column">
-		<header class="mb-auto fixed-top"><!--class="mb-auto"-->
+		<header class="mb-auto fixed-top">
 			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="#">
-						<img src="media/logo.png" alt="Logo WebApp" style="width:40px;" class="rounded-pill">
+						<img src="media/img/logo.png" alt="Logo WebApp" style="width:40px;" class="rounded-pill">
 					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-label="button navbar">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="collapsibleNavbar">
-						<ul class="navbar-nav">
+						<ul class="navbar-nav me-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="#">Link</a>
+								<a class="nav-link" href="#">Sección1</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Link</a>
+								<a class="nav-link" href="#">Sección2</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Link</a>
+								<a class="nav-link" href="#section3">Sección3</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Sección4</a>
 							</li>
 						</ul>
+						<div class="d-flex">
+							<a href="app/" class="btn btn-primary"><i class="bi bi-person-fill"></i></a>
+						</div>
 					</div>
 				</div>
 			</nav>
 		</header>
-		<main class="container pt-5">
-			<section class="pt-5 pb-5">	
+		<main class="pt-5">
+			<!-- Carousel -->
+			<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+				<!-- Indicators/dots -->
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+					<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+					<button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+				</div>
+
+				<!-- The slideshow/carousel -->
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="media/img/foto1.jpg" alt="Foto uno" class="d-block w-100">
+					</div>
+					<div class="carousel-item">
+						<img src="media/img/foto2.jpg" alt="Foto 2" class="d-block w-100">
+					</div>
+					<div class="carousel-item">
+						<img src="media/img/foto3.jpg" alt="Foto 3" class="d-block w-100">
+					</div>
+				</div>
+
+				<!-- Left and right controls/icons -->
+				<button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</button>
+			</div>
+
+			<section class="container py-5">	
 				<p class="pt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel nulla vitae nisl luctus iaculis sed vel ipsum. Etiam dictum odio ac fringilla blandit. Nullam congue enim leo, quis ullamcorper elit interdum pellentesque. Donec et fringilla risus. Vivamus at risus ullamcorper mauris condimentum blandit. Morbi a turpis venenatis, elementum purus quis, suscipit nisi. In vitae arcu at eros vulputate laoreet ut ac ex. Proin hendrerit viverra pharetra. In aliquam aliquam nisi finibus pulvinar. Phasellus odio dolor, dignissim sit amet viverra eu, dignissim a erat. Nulla sed sapien iaculis, sagittis ligula vitae, vulputate libero. Nunc a tempus enim, vitae bibendum urna. Cras ut dolor ac urna consequat maximus facilisis vel tellus. Quisque non blandit nulla.</p>
 			</section>
 
-			<section class="pt-5">
-				<!-- Button to Open the Modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-  Open modal
-</button>
-
-<!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        Modal body..
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-				<div class="row pt-3">
-					<div class="col-4">
-						<div class="card" style="width:400px">
-							<img class="card-img-top" src="img_avatar1.png" alt="Card image">
+			<section class="container py-5 text-center mx-auto" id="section3">
+				<p class="h4 py-3">Equipo de Trabajo</p>
+				<div class="row py-3 mx-auto">
+					<div class="col-md-4">
+						<div class="card" style="width:350px">
+							<img class="card-img-top mx-auto" src="media/img/user1.png" alt="Card image" style="width:150px;">
 							<div class="card-body">
 								<h4 class="card-title">John Doe</h4>
 								<p class="card-text">Some example text.</p>
@@ -99,9 +111,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-4">
-						<div class="card" style="width:400px">
-							<img class="card-img-top" src="img_avatar1.png" alt="Card image">
+					<div class="col-md-4">
+						<div class="card" style="width:350px">
+							<img class="card-img-top mx-auto" src="media/img/user3.png" alt="Card image" style="width:150px;">
 							<div class="card-body">
 								<h4 class="card-title">John Doe</h4>
 								<p class="card-text">Some example text.</p>
@@ -109,9 +121,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-4">
-						<div class="card" style="width:400px">
-							<img class="card-img-top" src="img_avatar1.png" alt="Card image">
+					<div class="col-md-4">
+						<div class="card" style="width:350px">
+							<img class="card-img-top mx-auto" src="media/img/user1.png" alt="Card image" style="width:150px;">
 							<div class="card-body">
 								<h4 class="card-title">John Doe</h4>
 								<p class="card-text">Some example text.</p>
@@ -121,7 +133,6 @@
 					</div>
 				</div>
 			</section>
-
 		</main>
 		<footer class="text-center text-white">
 			<!-- Grid container -->

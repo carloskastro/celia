@@ -31,6 +31,20 @@
 	<?php
 	require_once 'conn.php';
 
+	if (isset($_POST['guardar'])) {
+		$insert=$conn->prepare('INSERT INTO administrador (nombre,apellido,cedula,user,pass) VALUES (?,?,?,?,?)');
+		$insert->bindParam(1,$_POST['nombre']);
+		$insert->bindParam(2,$_POST['apellido']);
+		$insert->bindParam(3,$_POST['cedula']);
+		$insert->bindParam(4,$_POST['user']);
+		$insert->bindParam(5,$_POST['pass']);
+
+		if ($insert->execute()) {
+			echo 'Datos registrados';
+		}else{
+			echo "Datos no registrados";
+		}
+	}
 
 	?>
 	<main class="form-reg w-100 m-auto">
@@ -47,44 +61,51 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form action="/action_page.php">
-					 <div class="row">
-    <div class="col">
-					<div class="mb-3 mt-3">
-						<label for="user" class="form-label">Nombres:</label>
-						<input type="user" class="form-control" id="user" placeholder="Ingrese sus nombres" name="user">
+				<form action="" method="post" enctype="application/x-www-form-urlencoded">
+					<div class="row">
+						<div class="col">
+							<div class="mb-3 mt-3">
+								<label for="user" class="form-label">Nombres:</label>
+								<input type="text" class="form-control" id="user" placeholder="Ingrese sus nombres" name="nombre">
+							</div>
+						</div>
+						<div class="col">
+							<div class="mb-3 mt-3">
+								<label for="apellidos" class="form-label">Apellidos:</label>
+								<input type="text" class="form-control"  placeholder="Ingrese sus apellidos" name="apellido">
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="mb-3 mt-3">
+							<label for="cedula" class="form-label">Cédula:</label>
+							<input type="text" class="form-control"placeholder="Ingrese su número de documento" name="cedula" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+						</div>
 					</div>
 				</div>
-    <div class="col">
-					<div class="mb-3 mt-3">
-						<label for="user" class="form-label">Apellidos:</label>
-						<input type="user" class="form-control" id="user" placeholder="Ingrese sus apellidos" name="user">
-					</div>
+				<div class="mb-3 mt-3">
+					<label for="user" class="form-label">Usuario:</label>
+					<input type="text" class="form-control" placeholder="Ingrese su usuario" name="user">
 				</div>
-			</div>
-					<div class="mb-3 mt-3">
-						<label for="user" class="form-label">Usuario:</label>
-						<input type="user" class="form-control" id="user" placeholder="Ingrese su usuario" name="user">
-					</div>
-					<div class="mb-3">
-						<label for="pwd" class="form-label">Contraseña:</label>
-						<input type="password" class="form-control" id="pwd" placeholder="Ingrese su contraseña" name="pswd">
-					</div>
-					<div class="form-check mb-3">
-						<label class="form-check-label">
-							<input class="form-check-input" type="checkbox" name="remember"> Recuerdame
-						</label>
-					</div>
-					<div class="btn-group mx-auto">
-					  <button type="submit" class="btn btn-success">Guardar</button>
-					  <a href="./" class="btn btn-primary">Ingresar</a>
-					</div>				
-				</form>
-			</div>
-			<div class="card-footer text-center">
-				© 2023 Copyright
-			</div>
+				<div class="mb-3">
+					<label for="pwd" class="form-label">Contraseña:</label>
+					<input type="password" class="form-control" placeholder="Ingrese su contraseña" name="pass">
+				</div>
+				<div class="form-check mb-3">
+					<label class="form-check-label">
+						<input class="form-check-input" type="checkbox" name="remember"> Recuerdame
+					</label>
+				</div>
+				<div class="btn-group mx-auto">
+					<button type="submit" class="btn btn-success" name="guardar">Guardar</button>
+					<a href="./" class="btn btn-primary">Ingresar</a>
+				</div>				
+			</form>
 		</div>
-	</main>
+		<div class="card-footer text-center">
+			© 2023 Copyright
+		</div>
+	</div>
+</main>
 </body>
 </html>
