@@ -48,14 +48,13 @@
 
 	?>
 	<main class="form-reg w-100 m-auto">
-
 		<div class="card">
 			<div class="card-header">
+				<img class="mb-2" src="../media/img/logo.png" alt="Logo Sena" style="height: 48px">
+				<span class="float-end">
+					<a href="../"><kbd class="bg-danger"><i class="bi bi-x-lg"></i></kbd></a>
+				</span>
 				<div class="text-center">
-					<img class="mb-2" src="../media/img/logo.png" alt="Logo Sena" style="height: 48px">
-					<span class="float-end">
-						<a href="../"><kbd class="bg-danger"><i class="bi bi-x-lg"></i></kbd></a>
-					</span>
 					<h1 class="display-6 mb-0">Registro de Usuario</h1>
 					<div class="subheading-1 mb-2">ASEM</div>
 				</div>
@@ -80,32 +79,32 @@
 						<div class="mb-3 mt-3">
 							<label for="cedula" class="form-label">Cédula:</label>
 							<input type="text" class="form-control"placeholder="Ingrese su número de documento" name="cedula" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+							</div>
 						</div>
-					</div>
+
+						<div class="mb-3 mt-3">
+							<label for="user" class="form-label">Usuario:</label>
+							<input type="text" class="form-control" placeholder="Ingrese su usuario" name="user">
+						</div>
+						<div class="mb-3">
+							<label for="pwd" class="form-label">Contraseña:</label>
+							<input type="password" class="form-control" placeholder="Ingrese su contraseña" name="pass">
+						</div>
+						<div class="form-check mb-3">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" name="remember"> Recuerdame
+							</label>
+						</div>
+						<div class="btn-group mx-auto">
+							<button type="submit" class="btn btn-success" name="guardar">Guardar</button>
+							<a href="./" class="btn btn-primary">Ingresar</a>
+						</div>				
+					</form>
 				</div>
-				<div class="mb-3 mt-3">
-					<label for="user" class="form-label">Usuario:</label>
-					<input type="text" class="form-control" placeholder="Ingrese su usuario" name="user">
+				<div class="card-footer text-center">
+					© 2023 Copyright
 				</div>
-				<div class="mb-3">
-					<label for="pwd" class="form-label">Contraseña:</label>
-					<input type="password" class="form-control" placeholder="Ingrese su contraseña" name="pass">
-				</div>
-				<div class="form-check mb-3">
-					<label class="form-check-label">
-						<input class="form-check-input" type="checkbox" name="remember"> Recuerdame
-					</label>
-				</div>
-				<div class="btn-group mx-auto">
-					<button type="submit" class="btn btn-success" name="guardar">Guardar</button>
-					<a href="./" class="btn btn-primary">Ingresar</a>
-				</div>				
-			</form>
-		</div>
-		<div class="card-footer text-center">
-			© 2023 Copyright
-		</div>
-	</div>
-</main>
+			</div>
+		</main>
 </body>
 </html>
