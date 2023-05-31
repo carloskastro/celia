@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es-CO">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +9,7 @@
 	<meta name="MobileOptimized" content="width">
 	<meta name="HandhledFriendly" content="true">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar" content="black-traslucent"> 
+	<meta name="apple-mobile-web-app-status-bar" content="black-traslucent">
 
 	<!--Tags SEO-->
 	<meta name="author" content="Miproyecto">
@@ -25,11 +26,39 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
 	<script type="text/javascript" src="../assets/js/bootstrap.bundle.js"></script>
-	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+		integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+		crossorigin="anonymous"></script>
 </head>
-<body>
-	<main class="form-signin w-100 m-auto">
 
+<body>
+	<?php
+
+	require_once 'conn.php';
+	session_start();
+
+	if (isset($_POST['validar'])) {
+		$result = $conn->prepare('SELECT * FROM administrador WHERE user=?');
+		$result->bindParam(1, $_POST['user']);
+		$result->execute();
+
+		$data = $result->fetch(PDO::FETCH_ASSOC);
+		//Verficamos si hay datos
+		if (is_array($data)) {
+			//Verficamos si la contraseña es correcta
+			if ($_POST['pass'] == $data['pass']) {
+				$_SESSION['admin'] = $data['idadministrador'];
+				header('location: home.php');
+			} else {
+				echo "Contraseña incorrecta";
+			}
+		} else {
+			echo "Datos incorrectos";
+		}
+	}
+
+	?>
+	<main class="form-signin w-100 m-auto">
 		<div class="card">
 			<div class="card-header">
 				<div class="text-center">
@@ -42,15 +71,16 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form action="/action_page.php">
+				<form action="" method="post" enctype="application/x-www-form-urlencoded">
 					<div class="mb-3 mt-3">
 						<label for="user" class="form-label">Usuario:</label>
-						<label for="user" class="form-label float-end">No tienes usuario?: <a href="reg_adm.php" class="btn btn-sm btn-warning">Registrarse</a></label>
-						<input type="user" class="form-control" id="user" placeholder="Ingrese su usuario" name="user">
+						<label for="user" class="form-label float-end">No tienes usuario?: <a href="reg_adm.php"
+								class="btn btn-sm btn-warning">Registrarse</a></label>
+						<input type="text" class="form-control" placeholder="Ingrese su usuario" name="user">
 					</div>
 					<div class="mb-3">
 						<label for="pwd" class="form-label">Contraseña:</label>
-						<input type="password" class="form-control" id="pwd" placeholder="Ingrese su contraseña" name="pswd">
+						<input type="password" class="form-control" placeholder="Ingrese su contraseña" name="pass">
 					</div>
 					<div class="form-check mb-3">
 						<label class="form-check-label">
@@ -58,9 +88,9 @@
 						</label>
 					</div>
 					<div class="btn-group float-end mx-auto">
-					  <button type="submit" class="btn btn-success">Ingresar</button>
-					  <a href="reg_adm.php" class="btn btn-primary">Registrarse</a>
-					</div>				
+						<button type="submit" class="btn btn-success" name="validar">Ingresar</button>
+						<a href="reg_adm.php" class="btn btn-primary">Registrarse</a>
+					</div>
 				</form>
 			</div>
 			<div class="card-footer text-center">
@@ -69,4 +99,5 @@
 		</div>
 	</main>
 </body>
+
 </html>

@@ -47,6 +47,20 @@
 	}
 	?>
 	<main class="form-reg w-100 m-auto">
+		<?php
+
+		if ($msg1!='') {
+			echo '<div class="alert alert-success alert-dismissible">
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			<strong>'.$msg1.'!</strong>
+			</div>';
+		}elseif ($msg2!='') {
+			echo '<div class="alert alert-danger alert-dismissible">
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			<strong>'.$msg2.'!</strong>
+			</div>';
+		}
+		?>
 		<div class="card">
 			<div class="card-header">
 				<img class="mb-2" src="../media/img/logo.png" alt="Logo Sena" style="height: 48px">
