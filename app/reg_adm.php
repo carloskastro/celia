@@ -27,37 +27,46 @@
 	<script type="text/javascript" src="../assets/js/bootstrap.bundle.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="bg-dark">
 	<?php
 	require_once 'conn.php';
 
 	if (isset($_POST['guardar'])) {
-		$insert=$conn->prepare('INSERT INTO administrador (nombre,apellido,cedula,user,pass) VALUES (?,?,?,?,?)');
-		$insert->bindParam(1,$_POST['nombre']);
-		$insert->bindParam(2,$_POST['apellido']);
-		$insert->bindParam(3,$_POST['cedula']);
-		$insert->bindParam(4,$_POST['user']);
-		$insert->bindParam(5,$_POST['pass']);
+		$insert=$conn->prepare('INSERT INTO administrador (documento,nombre,apellido,direccion,telefono,fnac,user,pass) VALUES (?,?,?,?,?,?,?,?)');
+		$insert->bindParam(1,$_POST['documento']);
+		$insert->bindParam(2,$_POST['nombre']);
+		$insert->bindParam(3,$_POST['apellido']);
+		$insert->bindParam(4,$_POST['direccion']);
+		$insert->bindParam(5,$_POST['telefono']);
+		$insert->bindParam(6,$_POST['fnac']);
+		$insert->bindParam(7,$_POST['user']);
+		$pass=password_hash($_POST['pass'], PASSWORD_BCRYPT);
+		$insert->bindParam(8,$pass);
 
 		if ($insert->execute()) {
-			echo 'Datos registrados';
+			$mi='Datos registrados';
 		}else{
-			echo "Datos no registrados";
+			$mi="Datos no registrados";
 		}
 	}
 	?>
 	<main class="form-reg w-100 m-auto">
 		<?php
 
-		if ($msg1!='') {
-			echo '<div class="alert alert-success alert-dismissible">
-			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-			<strong>'.$msg1.'!</strong>
-			</div>';
-		}elseif ($msg2!='') {
+		if ($msg!='') {
 			echo '<div class="alert alert-danger alert-dismissible">
 			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-			<strong>'.$msg2.'!</strong>
+			<strong>'.$msg.'!</strong>
+			</div>';
+		}
+		?>
+		<!--Mensaje de confirmación-->
+		<?php
+
+		if ($mi!='') {
+			echo '<div class="alert alert-success alert-dismissible">
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			<strong>'.$mi.'!</strong>
 			</div>';
 		}
 		?>
@@ -65,7 +74,7 @@
 			<div class="card-header">
 				<img class="mb-2" src="../media/img/logo.png" alt="Logo Sena" style="height: 48px">
 				<span class="float-end">
-					<a href="../"><kbd class="bg-danger"><i class="bi bi-x-lg"></i></kbd></a>
+					<a href="./"><kbd class="bg-danger"><i class="bi bi-x-lg"></i></kbd></a>
 				</span>
 				<div class="text-center">
 					<h1 class="display-6 mb-0">Registro de Usuario</h1>
@@ -78,46 +87,66 @@
 						<div class="col">
 							<div class="mb-3 mt-3">
 								<label for="user" class="form-label">Nombres:</label>
-								<input type="text" class="form-control" id="user" placeholder="Ingrese sus nombres" name="nombre">
+								<input type="text" class="form-control" id="user" placeholder="Ingrese sus nombres" name="nombre" required>
 							</div>
 						</div>
 						<div class="col">
 							<div class="mb-3 mt-3">
 								<label for="apellidos" class="form-label">Apellidos:</label>
-								<input type="text" class="form-control"  placeholder="Ingrese sus apellidos" name="apellido">
+								<input type="text" class="form-control"  placeholder="Ingrese sus apellidos" name="apellido" required>
 							</div>
 						</div>
 					</div>
-					<div class="col">
-						<div class="mb-3 mt-3">
-							<label for="cedula" class="form-label">Cédula:</label>
-							<input type="text" class="form-control"placeholder="Ingrese su número de documento" name="cedula" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+					<div class="row">
+						<div class="col">
+							<div class="mb-3 mt-3">
+								<label for="direccion" class="form-label">Dirección:</label>
+								<input type="text" class="form-control" placeholder="Ingrese sus nombres" name="direccion" required>
 							</div>
 						</div>
+						<div class="col">
+							<div class="mb-3 mt-3">
+								<label for="apellidos" class="form-label">Telefono:</label>
+								<input type="text" class="form-control"  placeholder="Ingrese sus apellidos" name="telefono" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="mb-3 mt-3">
+								<label for="fnacimiento" class="form-label">Fecha Nac:</label>
+								<input type="date" class="form-control"  placeholder="Ingrese sus apellidos" name="fnac" required>
+							</div>
+						</div>
+						<div class="col">
+							<div class="mb-3 mt-3">
+								<label for="cedula" class="form-label">Documento:</label>
+								<input type="text" class="form-control"placeholder="Ingrese su número de documento" name="documento" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
+								</div>
+							</div>
 
-						<div class="mb-3 mt-3">
-							<label for="user" class="form-label">Usuario:</label>
-							<input type="text" class="form-control" placeholder="Ingrese su usuario" name="user">
-						</div>
-						<div class="mb-3">
-							<label for="pwd" class="form-label">Contraseña:</label>
-							<input type="password" class="form-control" placeholder="Ingrese su contraseña" name="pass">
-						</div>
-						<div class="form-check mb-3">
-							<label class="form-check-label">
-								<input class="form-check-input" type="checkbox" name="remember"> Recuerdame
-							</label>
-						</div>
-						<div class="btn-group mx-auto">
-							<button type="submit" class="btn btn-success" name="guardar">Guardar</button>
-							<a href="./" class="btn btn-primary">Ingresar</a>
-						</div>				
-					</form>
+							<div class="mb-3 mt-3">
+								<label for="user" class="form-label">Usuario:</label>
+								<input type="text" class="form-control" placeholder="Ingrese su usuario" name="user" required>
+							</div>
+							<div class="mb-3">
+								<label for="pwd" class="form-label">Contraseña:</label>
+								<input type="password" class="form-control" placeholder="Ingrese su contraseña" name="pass" required>
+							</div>
+							<div class="form-check mb-3">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="remember" required> Recuerdame
+								</label>
+							</div>
+							<div class="btn-group mx-auto w-100">
+								<button type="submit" class="btn btn-success" name="guardar">Guardar</button>
+								<a href="./" class="btn btn-primary">Ingresar</a>
+							</div>				
+						</form>
+					</div>
+					<div class="card-footer text-center">
+						© 2023 Copyright
+					</div>
 				</div>
-				<div class="card-footer text-center">
-					© 2023 Copyright
-				</div>
-			</div>
-		</main>
-	</body>
-	</html>
+			</main>
+		</body>
+		</html>
