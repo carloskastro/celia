@@ -22,12 +22,12 @@
 	<link rel="apple-touch-startup-image" type="image/png" href="../media/img/logo.png">
 
 	<!--Styles Bootstrap 5.3.1 Alpha-->
-	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-	<script type="text/javascript" src="../assets/js/bootstrap.bundle.js"></script>
-	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../assets/css/styles.css" media="all">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" media="all">
+	<script type="text/javascript" src="../assets/js/bootstrap.bundle.js" defer></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous" defer></script>
 </head>
 
 <body class="py-5 bg-dark">
@@ -37,20 +37,38 @@
 	session_start();
 
 	if (isset($_POST['validar'])) {
-		$result = $conn->prepare('SELECT * FROM administrador WHERE user=?');
+		$result = $conn->prepare('SELECT * FROM administrador WHERE user=? UNION SELECT * FROM aprendiz WHERE user=?');
 		$result->bindParam(1, $_POST['user']);
+		$result->bindParam(2, $_POST['user']);
 		$result->execute();
 
-		$data = $result->fetch(PDO::FETCH_ASSOC);
 		//Verficamos si hay datos
-		if (is_array($data)) {
-			//Verficamos si la contraseña es correcta
-			if (password_verify($_POST['pass'], $data['pass'])) {
-				$_SESSION['admin'] = $data['idadministrador'];
-				header('location: home.php');
-			} else {
-				echo "Contraseña incorrecta";
+		if ($data = $result->fetch(PDO::FETCH_ASSOC)) {
+			switch ($data['tipouser']) {
+				case 'admin':
+					//Verficamos si la contraseña es correcta
+					if (password_verify($_POST['pass'], $data['pass'])) {
+						$_SESSION['admin'] = $data['tipouser'];
+						header('location: homeadm.php');
+					} else {
+						echo "Contraseña incorrecta";
+					}
+					break;
+				case 'aprendiz':
+					//Verficamos si la contraseña es correcta
+					if (password_verify($_POST['pass'], $data['pass'])) {
+						$_SESSION['aprendiz'] = $data['tipouser'];
+						header('location: homeapr.php');
+					} else {
+						echo "Contraseña incorrecta";
+					}
+					break;
+				
+				default:
+					// code...
+					break;
 			}
+			
 		} else {
 			echo "Datos incorrectos";
 		}
@@ -66,7 +84,7 @@
 						<img class="mb-2" src="../media/img/logo.png" alt="Logo Sena" style="height: 48px">
 					</div>
 					<div class="col text-end">
-						<a href="../"><kbd class="bg-danger"><i class="bi bi-x-lg"></i></kbd></a>
+						<a href="../" aria-label="button back"><kbd class="bg-danger"><i class="bi bi-x-lg"></i></kbd></a>
 					</div>
 				</div>
 				<div class="text-center">
@@ -78,7 +96,7 @@
 				<form action="" method="post" enctype="application/x-www-form-urlencoded">
 					<div class="mb-3 mt-3">
 						<label for="user" class="form-label">Usuario:</label>
-						<label for="user" class="form-label float-end">No tienes usuario?: <a href="reg_adm.php" class="btn btn-sm btn-warning">Registrarse</a></label>
+						<label for="nouser" class="form-label float-end">No tienes usuario?: <a href="reg_adm.php" class="btn btn-sm btn-warning">Registrarse</a></label>
 						<input type="text" class="form-control" placeholder="Ingrese su usuario" name="user" required>
 					</div>
 					<div class="mb-3">

@@ -41,6 +41,7 @@
 		$insert->bindParam(6,$_POST['fnac']);
 		$insert->bindParam(7,$_POST['user']);
 		$pass=password_hash($_POST['pass'], PASSWORD_BCRYPT);
+		password_hash(string, PASSWORD_DEFAULT);
 		$insert->bindParam(8,$pass);
 
 		if ($insert->execute()) {
