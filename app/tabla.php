@@ -4,16 +4,19 @@
     <!--Datatables Buttons-->
     <link rel="stylesheet" type="text/css" href="../assets/datatables/css/buttons.bootstrap5.css">
 
-     <!--Responsive datatables-->
-    <script type="text/javascript" src="../assets/datatables/js/dataTables.responsive.min.js"></script>
+    <!--Datatables Responsive-->
+    <link rel="stylesheet" type="text/css" href="../assets/datatables/css/responsive.dataTables.min.css">
 
     <!--Datatables Scripts-->
     <script type="text/javascript" src="../assets/datatables/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="../assets/datatables/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="../assets/datatables/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="../assets/datatables/js/dataTables.bootstrap5.min.js"></script>
+
+    <!--Datatables responsive script-->
+    <script type="text/javascript" src="../assets/datatables/js/dataTables.responsive.min.js"></script>
 
     <!--Botones para exportar-->
+    <script type="text/javascript" src="../assets/datatables/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="../assets/datatables/js/dataTables.bootstrap5.min.js"></script>   
     <script type="text/javascript" src="../assets/datatables/js/pdfmake.min.js"></script>
     <script type="text/javascript" src="../assets/datatables/js/jszip.min.js"></script>
     <script type="text/javascript" src="../assets/datatables/js/vfs_fonts.js"></script>
