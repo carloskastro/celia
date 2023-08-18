@@ -49,7 +49,7 @@
 					//Verficamos si la contraseña es correcta
 					if (password_verify($_POST['pass'], $data['pass'])) {
 						$_SESSION['admin'] = $data['tipouser'];
-						header('location: homeadm.php');
+						header('location: homeadm');
 					} else {
 						echo "Contraseña incorrecta";
 					}
@@ -58,7 +58,7 @@
 					//Verficamos si la contraseña es correcta
 					if (password_verify($_POST['pass'], $data['pass'])) {
 						$_SESSION['aprendiz'] = $data['tipouser'];
-						header('location: homeapr.php');
+						header('location: homeapr');
 					} else {
 						echo "Contraseña incorrecta";
 					}

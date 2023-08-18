@@ -24,7 +24,7 @@
     <!--Styles Bootstrap 5.3.1 Alpha-->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+    
     <script type="text/javascript" src="../assets/js/bootstrap.bundle.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
 
@@ -79,7 +79,7 @@
             </div>
         </nav>
     </header>
-    <main class="container p-5 mx-auto mt-5 table-responsive">
+    <main class="container p-5 mx-auto mt-5">
 
         <?php
         //Controlador del navbar

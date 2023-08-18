@@ -28,6 +28,36 @@
     $(document).ready(function () {
         $('#tableresponsive').DataTable({
             dom: 'Bflrtip',
+            buttons: [
+                {//Boton Copiar
+                    extend: 'copyHtml5',
+                    footer: true,
+                    titleAttr: 'Copiar',
+                    className: 'btn btn-outline-info btn-md',
+                    text: '<i class="bi bi-clipboard"></i>'
+                },
+                {//Botón Excel
+                    extend: 'excelHtml5',
+                    footer: true,
+                    titleAttr: 'Exportar Excel',
+                    className: 'btn btn-outline-success btn-md',
+                    text: '<i class="bi bi-file-excel"></i>'
+                },
+                {//Botón Pdf
+                    extend: 'pdfHtml5',
+                    footer: true,
+                    titleAttr: 'Exportar PDF',
+                    className: 'btn btn-outline-danger btn-md',
+                    text: '<i class="bi bi-filetype-pdf"></i>'
+                },
+                {//Botón print
+                    extend: 'print',
+                    footer: true,
+                    titleAttr: 'Imprimir',
+                    className: 'btn btn-outline-primary btn-md',
+                    text: '<i class="bi bi-printer"></i>'
+                },
+                ],
             responsive: true,
             language: {
                 url: '../assets/datatables/es-ES.json'
@@ -38,6 +68,21 @@
 
 <?php
  if (is_array($data)) {
+
+/*Función Eliminar registro*/
+if (isset($_GET['delete'])) {
+    $delete = $conn->prepare('DELETE FROM administrador WHERE idadministrador=?');
+    $delete->bindParam(1,$_GET['delete']);
+    $delete->execute();
+
+    if ($delete) {
+        echo "Registro Borrado";
+    }else{
+        echo "Error al borrar";
+    }
+}
+/*Función Eliminar registro*/
+
 ?>
 <div class="container py-5">
  <table class="table table-striped table-bordered table-hover" id="tableresponsive" style="width: 100%;">
@@ -52,7 +97,7 @@
     </thead>
     <tbody>
         <?php
-        $result=$conn->prepare('SELECT * FROM aprendiz');
+        $result=$conn->prepare('SELECT * FROM administrador');
         $result->execute();
 
         while ($view=$result->fetch(PDO::FETCH_ASSOC)) {
@@ -62,7 +107,10 @@
             <td><?php echo $view['nombre']; ?></td>
             <td><?php echo $view['apellido']; ?></td>
             <td><?php echo $view['direccion']; ?></td>
-            <td>Actualizar y Eliminar</td>
+            <td>
+                <a href="" title="Editar" class="btn btn-outline-primary"><i class="bi bi-pencil-fill"></i></a>
+                <a href="homeadm?page=tabla&delete=<?php echo $view['idadministrador']; ?>" title="Eliminar" class="btn btn-outline-danger"><i class="bi bi-trash3-fill"></i></a>
+            </td>
         </tr>
     <?php } ?>
     </tbody>
