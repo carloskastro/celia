@@ -76,7 +76,45 @@ if (isset($_GET['delete'])) {
     $delete->execute();
 
     if ($delete) {
-        echo "Registro Borrado";
+        //echo "Registro Borrado";
+    ?>
+    <script type="text/javascript">
+
+        $( document ).ready(function() {
+        $('#avisodel').modal('toggle')
+        $('#cerrar').on('click', function () {
+            $(location).attr('href','homeadm?page=tabla');
+      });
+        });
+
+    </script>
+
+    <!-- Modal eliminar datos -->
+            <div class="modal fade" id="avisodel">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">Alerta de datos</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    Datos eliminados con éxito.
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="cerrar">Cerrar</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+        <!-- Modal eliminar datos  -->
+    <?php
     }else{
         echo "Error al borrar";
     }
@@ -97,7 +135,8 @@ if (isset($_GET['delete'])) {
     </thead>
     <tbody>
         <?php
-        $result=$conn->prepare('SELECT * FROM administrador');
+        $result=$conn->prepare('SELECT * FROM administrador WHERE idadministrador!=?');
+        $result->bindParam(1,$data['idadministrador']);
         $result->execute();
 
         while ($view=$result->fetch(PDO::FETCH_ASSOC)) {
@@ -109,9 +148,36 @@ if (isset($_GET['delete'])) {
             <td><?php echo $view['direccion']; ?></td>
             <td>
                 <a href="" title="Editar" class="btn btn-outline-primary"><i class="bi bi-pencil-fill"></i></a>
-                <a href="homeadm?page=tabla&delete=<?php echo $view['idadministrador']; ?>" title="Eliminar" class="btn btn-outline-danger"><i class="bi bi-trash3-fill"></i></a>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#delete" title="Eliminar" class="btn btn-outline-danger" title="Eliminar Datos"><i class="bi bi-trash3-fill"></i></button>
             </td>
         </tr>
+        <!-- Modal eliminar datos -->
+            <div class="modal fade" id="delete">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">Alerta de datos</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    Realmente desea eliminar el registro con documento:
+                    <p><?php echo $view['documento']; ?></p>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <a href="homeadm?page=tabla&delete=<?php echo $view['idadministrador']; ?>" title="Aceptar" class="btn btn-success">Aceptar</a>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+        <!-- Modal eliminar datos  -->
     <?php } ?>
     </tbody>
 </table>
