@@ -148,11 +148,11 @@ if (isset($_GET['delete'])) {
             <td><?php echo $view['direccion']; ?></td>
             <td>
                 <a href="" title="Editar" class="btn btn-outline-primary"><i class="bi bi-pencil-fill"></i></a>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#delete" title="Eliminar" class="btn btn-outline-danger" title="Eliminar Datos"><i class="bi bi-trash3-fill"></i></button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#delete<?php echo $view['idadministrador']; ?>" title="Eliminar" class="btn btn-outline-danger" title="Eliminar Datos"><i class="bi bi-trash3-fill"></i></button>
             </td>
         </tr>
         <!-- Modal eliminar datos -->
-            <div class="modal fade" id="delete">
+            <div class="modal fade" id="delete<?php echo $view['idadministrador']; ?>">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
