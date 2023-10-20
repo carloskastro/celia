@@ -122,7 +122,16 @@ if (isset($_GET['delete'])) {
 /*Función Eliminar registro*/
 
 ?>
-<div class="container py-5">
+<div class="container py-3">
+    <div class="row">
+        <div class="col-8">
+            <h1 class="display-4 float-end">Tabla Usuarios</h1>            
+        </div>
+        <div class="col-4">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#delete<?php echo $view['idadministrador']; ?>" class="float-end btn btn-outline-primary" title="Crear Datos"><i class="bi bi-plus"></i> Nuevo</button>
+        </div>
+    </div>
+    
  <table class="table table-striped table-bordered table-hover" id="tableresponsive" style="width: 100%;">
     <thead>
         <tr>
@@ -148,7 +157,7 @@ if (isset($_GET['delete'])) {
             <td><?php echo $view['direccion']; ?></td>
             <td>
                 <a href="" title="Editar" class="btn btn-outline-primary"><i class="bi bi-pencil-fill"></i></a>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#delete<?php echo $view['idadministrador']; ?>" title="Eliminar" class="btn btn-outline-danger" title="Eliminar Datos"><i class="bi bi-trash3-fill"></i></button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#delete<?php echo $view['idadministrador']; ?>" class="btn btn-outline-danger" title="Eliminar Datos"><i class="bi bi-trash3-fill"></i></button>
             </td>
         </tr>
         <!-- Modal eliminar datos -->
