@@ -13,39 +13,45 @@
     <meta name="keywords" content="Diseño, diseño, DISEÑO, Bootstrap, bootstrap, BOOTSTRAP">
     <!--Styles Bootstrap-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--Icons Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Logo</a>
+                <a class="navbar-brand" href="./"><i class="bi bi-android2" style="font-size: 50px;"></i></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" aria-label="boton menu"
                     data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="./"><i class="bi bi-google-play"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#intro">Introducción</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
                         </li>
                     </ul>
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-primary" onclick="location.href='app/'">Acceder</button>
+                    </div>
                 </div>
             </div>
         </nav>
 
         <!-- Carousel -->
-        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+        <div id="demo" class="carousel slide pt-5" data-bs-ride="carousel">
 
             <!-- Indicators/dots -->
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" aria-label="boton1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"
+                    aria-label="boton1"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="1" aria-label="boton2"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="2" aria-label="boton3"></button>
             </div>
@@ -64,23 +70,69 @@
             </div>
 
             <!-- Left and right controls/icons -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev" aria-label="botonprev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev"
+                aria-label="botonprev">
                 <span class="carousel-control-prev-icon"></span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next" aria-label="botonnext">
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next"
+                aria-label="botonnext">
                 <span class="carousel-control-next-icon"></span>
             </button>
         </div>
     </header>
-    <main>
+    <main class="container">
+        <section class="py-5 my-5" id="intro">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="py-2 my-2">Qué es html5?</h1>
+                    <p>Cuando hablamos de HTML5 lo primero que tenemos que saber es que es la última versión de la
+                        tecnología HTML, cuyas siglas corresponden a “HyperText Markup Language”, que tiene el siguiente
+                        significado:
+
+                        HyperText, cuyo significado es hipertexto, que no es más que un texto que enlaza con otros
+                        contenidos, que pueden ser otro texto u otro archivo. Esto es la base del funcionamiento de la
+                        web tal y como la conocemos, que no es más que páginas y recursos interconectados.
+                        Markup, que significa marca o etiqueta, ya que todas las páginas web están construidas en base a
+                        etiquetas, desde las primeras versiones hasta las últimas etiquetas de HTML5. Un ejemplo de una
+                        etiqueta HTML es la que identifica a un párrafo, que se compone de la etiqueta, el contenido de
+                        la etiqueta y el cierre del párrafo:
+                    <p>HOLA</p>
+                    Languaje, cuyo significado es lenguaje, porque HTML es un lenguaje, es decir, tiene sus normas,
+                    tiene su estructura y una serie de convenciones que nos sirven para definir tanto la estructura como
+                    el contenido de una web.</p>
+                </div>
+                <div class="col-md-4 text-center my-auto">
+                    <img src="assets/media/logo.png" alt="logo html5" style="width: 300px;">
+                </div>
+            </div>
+        </section>
+        <section id="video">
+            <div class="row">
+                <div class="col-md-4">
+                    contenido
+                </div>
+                <div class="col-md-4">
+                    contenido
+                </div>
+                <div class="col-md-4">
+                    contenido
+                </div>
+            </div>
+        </section>
 
     </main>
-    <footer>
-
+    <footer class="my-4 py-4 bg-dark">
+        <p class="text-center text-light">&copy; Copyright 2024</p>
     </footer>
 
     <!--Scripts Bootstrap-->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!--¿Cómo esconder el "#" hash de una url-->
+    <script type="text/javascript">
+        window.onhashchange = function () {
+            window.history.pushState('', document.title, window.location.pathname)
+        }
+    </script>
 </body>
 
 </html>
