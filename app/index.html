@@ -22,8 +22,7 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./"><i class="bi bi-android2" style="font-size: 50px;"></i></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" aria-label="boton menu"
-                    data-bs-target="#collapsibleNavbar">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" aria-label="boton menu" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -32,7 +31,7 @@
                             <a class="nav-link" href="./"><i class="bi bi-google-play"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#intro">Introducción</a>
+                            <a class="nav-link" href="introjs.html">Intro JS</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
@@ -45,8 +44,61 @@
             </div>
         </nav>
     </header>
-    <main>
-
+    <main class="container pt-5 mt-5">
+        <section id="forms">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/action_page.php">
+                                <div class="mb-3 mt-3">
+                                  <label for="email" class="form-label">Email:</label>
+                                  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="pwd" class="form-label">Password:</label>
+                                  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                                </div>
+                                <div class="form-check mb-3">
+                                  <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                                  </label>
+                                </div>
+                                
+                              </form>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/action_page.php">
+                                <div class="mb-3 mt-3">
+                                  <label for="email" class="form-label">Email:</label>
+                                  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="pwd" class="form-label">Password:</label>
+                                  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                                </div>
+                                <div class="form-check mb-3">
+                                  <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                                  </label>
+                                </div>
+                                
+                              </form>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <footer class="my-4 py-4 bg-dark">
         <p class="text-center text-light">&copy; Copyright 2024</p>
