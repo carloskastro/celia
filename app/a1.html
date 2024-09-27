@@ -1,0 +1,72 @@
+<div>
+    <h1 class="display-6">Algoritmo 1</h1>
+    <p>Operaciones básicas con dos números (Suma, Resta, Multiplicación y División).</p>
+    <div>
+        <h1 class="display-6">Solución</h1>
+        <div class="card">
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="text-center">
+                            <h1 class="display-6">Operaciones</h1>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="num1" class="form-label">Número</label>
+                            <input class="form-control" type="text" name="num1" id="num1"
+                                placeholder="Escriba primer número">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="num2" class="form-label">Número</label>
+                            <input class="form-control" type="text" name="num2" id="num2"
+                                placeholder="Escriba segundo número">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <p class="form-label">Operación</p>
+                            <select name="oper" id="oper" class="form-select">
+                                <option value="" selected>Seleccione</option>
+                                <option value="+">Suma</option>
+                                <option value="-">Resta</option>
+                                <option value="*">Multiplicación</option>
+                                <option value="/">División</option>
+                            </select>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-success btn-block" name="calcular"
+                                id="calcular">Calcular</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h1 class="display-6">Resultado</h1>
+                                <h2 id="resultado"></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('calcular').addEventListener('click', () =>{
+            var a = parseInt(document.getElementById('num1').value)
+            var b = parseInt(document.getElementById('num2').value)
+            var oper = document.getElementById('oper').value
+            switch (oper) {
+                case '+':
+                    var suma = a+b  
+                    document.getElementById('resultado').innerHTML = suma                  
+                    break;
+            
+                default:
+                    document.getElementById('resultado').innerHTML = "La operación no está"
+                    break;
+            }
+
+
+        });
+    </script>
+
+</div>

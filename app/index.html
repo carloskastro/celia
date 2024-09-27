@@ -34,7 +34,19 @@
                             <a class="nav-link" href="introjs.html">Intro JS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="forms.html">Formularios</a>
+                        </li>
+                        <li class="nav-item"></li>
+                            <a class="nav-link" href="a1.html">A1</a>
+                        </li>
+                        <li class="nav-item"></li>
+                            <a class="nav-link" href="a2.html">A2</a>
+                        </li>
+                        <li class="nav-item"></li>
+                            <a class="nav-link" href="a3.html">A3</a>
+                        </li>
+                        <li class="nav-item"></li>
+                            <a class="nav-link" href="a4.html">A4</a>
                         </li>
                     </ul>
                     <div class="d-flex">
@@ -45,65 +57,25 @@
         </nav>
     </header>
     <main class="container pt-5 mt-5">
-        <section id="forms">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="/action_page.php">
-                                <div class="mb-3 mt-3">
-                                  <label for="email" class="form-label">Email:</label>
-                                  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="pwd" class="form-label">Password:</label>
-                                  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-                                </div>
-                                <div class="form-check mb-3">
-                                  <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                                  </label>
-                                </div>
-                                
-                              </form>
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="/action_page.php">
-                                <div class="mb-3 mt-3">
-                                  <label for="email" class="form-label">Email:</label>
-                                  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="pwd" class="form-label">Password:</label>
-                                  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-                                </div>
-                                <div class="form-check mb-3">
-                                  <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                                  </label>
-                                </div>
-                                
-                              </form>
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div id="content"></div>                
     </main>
     <footer class="my-4 py-4 bg-dark">
         <p class="text-center text-light">&copy; Copyright 2024</p>
     </footer>
+    
+    <!--Script modular menu con JQUERY-->
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script>
+        $('body').on('click','a', function(event){
+            event.preventDefault()
+            var $target = $(event.currentTarget)
+            var destinationLocation = $target.attr('href')
+            if (destinationLocation !== '#') {
+                $('#content').load(destinationLocation)
+            }
+        });
 
+    </script>
     <!--Scripts Bootstrap-->
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <!--¿Cómo esconder el "#" hash de una url-->
